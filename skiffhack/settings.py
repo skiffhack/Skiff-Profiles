@@ -4,7 +4,7 @@ import os, sys, urlparse
 env = lambda e, d: environ[e] if environ.has_key(e) else d
 from os import environ
 
-PROJECT_PATH = os.path.abspath(os.path.join(os.path.split(__file__)[0], os.pardir))
+PROJECT_PATH = os.path.join(os.path.split(__file__)[0]
 
 # Add the apps directory to the PYTHONPATH
 sys.path.append(os.path.join(PROJECT_PATH, 'apps'))
