@@ -44,15 +44,8 @@ $(document).ready(function(){
             <li><a href="/clients">Menu1</a></li>
             <li class="active"><a href="/classes">Menu2</a></li>
           </ul>
-        </div>
-      </div>
-    </div>
-    
-    <div class="container">
-      <div class="content">
-        <div class="page-header">
-          <h1>{%block page-heading %}Skiff Stuff{% endblock %} <small>{% block page-subheading %}Hello world!{% endblock %}</a> </small></h1>
-          {% block after-heading %}
+          <ul class="nav secondary-nav">
+            <li>
             {% if not user.is_authenticated %}
               <a id="browserid" >Sign In</a>
               <form method="POST" action="{% url browserid_verify %}">
@@ -62,6 +55,17 @@ $(document).ready(function(){
             {% else %}
               Logged in!
             {% endif %}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="content">
+        <div class="page-header">
+          <h1>{%block page-heading %}Skiff Stuff{% endblock %} <small>{% block page-subheading %}Hello world!{% endblock %}</a> </small></h1>
+          {% block after-heading %}
           {% endblock %}
         </div>
         <div class="row">
