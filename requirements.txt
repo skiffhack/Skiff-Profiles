@@ -3,3 +3,4 @@ south==0.7.3
 psycopg2==2.4.4
 gunicorn==0.12.2
 git+https://github.com/mozilla/django-browserid.git
+httplib2==0.6
