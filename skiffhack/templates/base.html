@@ -45,17 +45,19 @@ $(document).ready(function(){
             <li class="active"><a href="/classes">Menu2</a></li>
           </ul>
           <ul class="nav secondary-nav">
-            <li>
             {% if not user.is_authenticated %}
-              <a id="browserid" >Sign In</a>
+            <li>
+              <a id="browserid" href="#">Sign In</a>
               <form method="POST" action="{% url browserid_verify %}">
                 {% csrf_token %}
                 {{ browserid_form.as_p }}
               </form>
-            {% else %}
-              Logged in!
-            {% endif %}
             </li>
+            {% else %}
+            <li>
+              {{ user.email }}
+            </li>
+            {% endif %}
           </ul>
         </div>
       </div>
