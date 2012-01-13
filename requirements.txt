@@ -2,4 +2,4 @@ django==1.3.1
 south==0.7.3
 psycopg2==2.4.4
 gunicorn==0.12.2
-git+https:://github.com/mozilla/django-browserid.git@29addfd69df49cea18d691ba1f5c1ac38aebb6b8#egg=django-browserid
+git+https://github.com/mozilla/django-browserid.git@29addfd69df49cea18d691ba1f5c1ac38aebb6b8#egg=django-browserid
