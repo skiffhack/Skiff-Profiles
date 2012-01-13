@@ -1,7 +1,9 @@
 import os
 import sys
 from django.conf import global_settings
-from . import secrets
+
+env = lambda e, d: environ[e] if environ.has_key(e) else d
+from os import environ
 
 PROJECT_PATH = os.path.abspath(os.path.join(os.path.split(__file__)[0], os.pardir))
 
@@ -43,7 +45,8 @@ MEDIA_URL = '/static/media/'
 
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
-SECRET_KEY = secrets.SECRET_KEY
+# The secret key is a heroku env, set with "heroku config:add SECRET_KEY=keyvalue"
+SECRET_KEY = env('SECRET_KEY','')
 
 # Default to dummy cache, can be overridden in deployment-specific settings files
 CACHES = {
