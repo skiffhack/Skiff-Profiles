@@ -9,7 +9,7 @@ PROJECT_PATH = os.path.split(__file__)[0]
 # Add the apps directory to the PYTHONPATH
 sys.path.append(os.path.join(PROJECT_PATH, 'apps'))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 BASE_DOMAIN = 'example.com'
@@ -26,11 +26,19 @@ LANGUAGE_CODE = 'en-GB'
 
 SITE_ID = 1
 
-SITE_URL = 'http://skiffhack.herokuapp.com/'
+# SITE_URL = 'http://skiffhack.herokuapp.com/'
+SITE_URL = 'http://127.0.0.1:8000'
 
 USE_I18N = False
 
 USE_L10N = False
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_PATH, 'database', 'db.sqlite'),
+    }
+}
 
 LOGIN_REDIRECT_URL = '/'
 
