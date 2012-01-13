@@ -55,7 +55,7 @@ $(document).ready(function(){
             </li>
             {% else %}
             <li>
-              {{ user.email }}
+              <a href="{% url logout %}">{{ user.email }} (logout)</a>
             </li>
             {% endif %}
           </ul>
