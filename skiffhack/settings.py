@@ -1,6 +1,5 @@
-import os
-import sys
 from django.conf import global_settings
+import os, sys, urlparse
 
 env = lambda e, d: environ[e] if environ.has_key(e) else d
 from os import environ
@@ -33,8 +32,6 @@ USE_L10N = False
 
 LOGIN_REDIRECT_URL = '/manage/'
 
-from .common import *
-import os, sys, urlparse
 urlparse.uses_netloc.append('postgres')
 urlparse.uses_netloc.append('mysql')
 try:
