@@ -46,9 +46,9 @@
                 {% csrf_token %}
                 {{ browserid_form.as_p }}
               </form>
-            {% endif %}
-          {% else %}
+            {% else %}
               Logged in!
+            {% endif %}
           {% endblock %}
         </div>
         <div class="row">
