@@ -9,7 +9,7 @@ PROJECT_PATH = os.path.abspath(os.path.join(os.path.split(__file__)[0], os.pardi
 # Add the apps directory to the PYTHONPATH
 sys.path.append(os.path.join(PROJECT_PATH, 'apps'))
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 BASE_DOMAIN = 'example.com'
@@ -26,11 +26,15 @@ LANGUAGE_CODE = 'en-GB'
 
 SITE_ID = 1
 
+SITE_URL = 'http://skiffhack.herokuapp.com/'
+
 USE_I18N = False
 
 USE_L10N = False
 
 LOGIN_REDIRECT_URL = '/manage/'
+
+BROWSERID_CREATE_USER = True
 
 STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
 STATIC_URL = '/static/'
@@ -69,6 +73,10 @@ MIDDLEWARE_CLASSES = (
     #    'django.middleware.cache.FetchFromCacheMiddleware',
     )
 
+AUTHENTICATION_BACKENDS = (
+    'django_browserid.auth.BrowserIDBackend',
+)
+
 ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
@@ -78,6 +86,7 @@ TEMPLATE_DIRS = (
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
     'django.core.context_processors.static',
+    'django_browserid.context_processors.browserid_form',
 )
 
 INSTALLED_APPS = (
@@ -90,4 +99,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'gunicorn',
+    'django.contrib.auth',
+    'django_browserid',  # Load after auth to monkey-patch it.
 )
