@@ -26,8 +26,7 @@ LANGUAGE_CODE = 'en-GB'
 
 SITE_ID = 1
 
-# SITE_URL = 'http://skiffhack.herokuapp.com/'
-SITE_URL = 'http://127.0.0.1:8000'
+SITE_URL = 'http://skiffhack.herokuapp.com/'
 
 USE_I18N = False
 
