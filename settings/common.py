@@ -68,25 +68,25 @@ MIDDLEWARE_CLASSES = (
     #    'django.middleware.cache.FetchFromCacheMiddleware',
     )
 
-    ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'urls'
 
-    TEMPLATE_DIRS = (
-        os.path.join(PROJECT_PATH, 'templates'),
-    )
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_PATH, 'templates'),
+)
 
-    TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-        'django.core.context_processors.request',
-        'django.core.context_processors.static',
-    )
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+    'django.core.context_processors.request',
+    'django.core.context_processors.static',
+)
 
-    INSTALLED_APPS = (
-        'django.contrib.auth',
-        'django.contrib.contenttypes',
-        'django.contrib.sessions',
-        'django.contrib.sites',
-        'django.contrib.messages',
-        'django.contrib.admin',
-        'django.contrib.staticfiles',
-        'south',
-        'bootstrap',
-    )
+INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.admin',
+    'django.contrib.staticfiles',
+    'south',
+    'bootstrap',
+)
