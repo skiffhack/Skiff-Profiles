@@ -9,7 +9,7 @@ PROJECT_PATH = os.path.split(__file__)[0]
 # Add the apps directory to the PYTHONPATH
 sys.path.append(os.path.join(PROJECT_PATH, 'apps'))
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 BASE_DOMAIN = 'example.com'
