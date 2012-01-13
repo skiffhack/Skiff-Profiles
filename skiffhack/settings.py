@@ -33,6 +33,13 @@ USE_L10N = False
 
 LOGIN_REDIRECT_URL = '/manage/'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_PATH, 'database', 'db.sqlite'),
+    }
+}
+
 STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
 STATIC_URL = '/static/'
 
