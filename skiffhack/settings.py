@@ -32,7 +32,7 @@ USE_I18N = False
 
 USE_L10N = False
 
-LOGIN_REDIRECT_URL = '/manage/'
+LOGIN_REDIRECT_URL = '/'
 
 BROWSERID_CREATE_USER = True
 
