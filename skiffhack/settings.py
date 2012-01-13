@@ -1,4 +1,4 @@
-f@29addfd69df49cea18d691ba1f5c1ac38aebb6b8#egg=django-browseriorom django.conf import global_settings
+from django.conf import global_settings
 import os, sys, urlparse
 
 env = lambda e, d: environ[e] if environ.has_key(e) else d
