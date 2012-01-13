@@ -61,7 +61,6 @@ TEMPLATE_LOADERS = (
 
 MIDDLEWARE_CLASSES = (
     #    'django.middleware.cache.UpdateCacheMiddleware',
-        'core.middleware.CompanyMiddleware',
         'django.middleware.common.CommonMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.csrf.CsrfViewMiddleware',
@@ -89,6 +88,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.staticfiles',
-    # 'south',
+    'south',
     'gunicorn',
 )
