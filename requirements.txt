@@ -1,0 +1,3 @@
+django==1.3.1
+south==0.7.3
+-e git://github.com/earle/django-bootstrap.git@02efd25f314365d4ce44c98605553da4a8f5954f#egg=bootstrap-dev

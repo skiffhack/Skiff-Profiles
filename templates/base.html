@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie6 old" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 old" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 old" lang="en"> <![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>{% block title %}Skiff Stuff!!{% endblock %}</title>
+
+    {% for key,value in open_graph.items %}
+    <meta property="{{key}}" content="{{value}}"/>
+    {% endfor %}
+    
+    <meta charset="utf-8"/>
+    <meta name="description" content="Add description for search engine summary"/>
+    <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <script src="{{ STATIC_URL }}media/javascript/application.js"></script>       
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}media/css/core.css" media="screen"/>
+    <style type="text/css">
+      {% block css %}{% endblock %}
+    </style>
+    {% block extrahead %}{% endblock %}
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Skiff Stuff</a>
+          <ul class="nav">
+            <li><a href="/clients">Menu1</a></li>
+            <li class="active"><a href="/classes">Menu2</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="content">
+        <div class="page-header">
+          <h1>{%block page-heading %}Skiff Stuff{% endblock %} <small>{% block page-subheading %}Hello world!{% endblock %}</a> </small></h1>
+          {% block after-heading %}
+          {% endblock %}
+        </div>
+        <div class="row">
+          <div class="span10">
+            {% block content %}{% endblock %}
+          </div>
+          <div class="span4">
+            {% block sidebar %} {% endblock %}
+          </div>
+        </div>
+      </div>
+      <footer>
+        <p>Created at <a href="https://github.com/skiffhack/SkiffHack/wiki">SkiffHack</a></p>
+      </footer>
+    </div>
+    
+
+  </body>
+</html>

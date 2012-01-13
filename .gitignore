@@ -1,0 +1,10 @@
+*.pyc
+*.swp
+.DS_Store
+env/
+static/
+media/media/
+settings/local.py
+settings/secrets.py
+.ropeproject
+.dir-locals.el
