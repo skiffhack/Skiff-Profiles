@@ -41,7 +41,7 @@ DATABASES = {
     }
 }
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/edit_profile/'
 
 BROWSERID_CREATE_USER = True
 
