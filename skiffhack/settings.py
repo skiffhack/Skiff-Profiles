@@ -14,6 +14,8 @@ TEMPLATE_DEBUG = DEBUG
 
 BASE_DOMAIN = 'example.com'
 
+AUTH_PROFILE_MODULE = 'profiles.Profile'
+
 ADMINS = (
     ('Thomas Parslow', 'tom@almostobsolete.net'),
 )
@@ -55,6 +57,8 @@ MEDIA_URL = '/static/media/'
 
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
+STATICFILES_DIRS = (os.path.join(PROJECT_PATH, 'media'),)
+
 # The secret key is a heroku env, set with "heroku config:add SECRET_KEY=keyvalue"
 SECRET_KEY = env('SECRET_KEY','')
 
@@ -81,6 +85,7 @@ MIDDLEWARE_CLASSES = (
     )
 
 AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
     'django_browserid.auth.BrowserIDBackend',
 )
 
@@ -94,6 +99,7 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
     'django.core.context_processors.static',
     'django_browserid.context_processors.browserid_form',
+    'django.core.context_processors.static',
 )
 
 INSTALLED_APPS = (
@@ -108,4 +114,6 @@ INSTALLED_APPS = (
     'gunicorn',
     'django.contrib.auth',
     'django_browserid',  # Load after auth to monkey-patch it.
+    'bootstrap',
+    'profiles',
 )
