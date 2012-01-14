@@ -9,13 +9,12 @@ class EditProfile(UpdateView):
     model = Profile
     template_name = "edit_profile.html"
     form_class = forms.ProfileForm
+    success_url = "/"
 
     def get_object(self):
         profile, _created = Profile.objects.get_or_create(user=self.request.user)
         return profile
 
-    def form_valid(self, form):
-       return self.render_to_response(self.get_context_data(form=form))
 
 class JSONView(View):
     def get(self, request, *args, **kwargs):
