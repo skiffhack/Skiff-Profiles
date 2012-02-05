@@ -1,7 +1,7 @@
 from django.views.generic import UpdateView, View, DetailView, ListView
 from models import *
 import forms
-from django.utils import simplejson as ()json
+from django.utils import simplejson as json
 from django.http import HttpResponse, HttpResponseRedirect
 import re
 from django.contrib.auth.decorators import login_required
