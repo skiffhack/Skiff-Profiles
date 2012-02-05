@@ -49,3 +49,38 @@ body {
 .topbar .btn {
   border: 0;
 }
+
+/* ======== */
+/* Profiles */
+/* ======== */
+
+img.profile_image {
+    float: left;
+    margin-right: 1em;
+}
+
+.profile-details div {
+    margin-bottom: 0.5em;
+    margin-right: 2em;
+    float: left;
+}
+
+.profile-details .clearfix {
+    heigh
+}
+
+.twtr-hd, .twtr-ft {
+    display: none;
+}
+
+h1 a {
+    color: black;
+}
+
+
+.profile-list .profile {
+    width:  160px;
+    margin-bottom: 1em;
+    float: left;
+    text-align: center;
+}

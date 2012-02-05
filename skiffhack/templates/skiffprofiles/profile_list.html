@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{%block page-heading %}
+Skiff Profiles
+{% endblock %}
+
+{% block page-subheading %}{% endblock %}
+
+{% block content %}
+<div class="profile-list">
+  {% for profile in profile_list %}
+  <div class="profile">
+    <a href="{{profile.get_absolute_url}}">
+    <img  src="{{profile.profile_image}}" alt="{{profile.real_name}}'s profile image" width="80" height="80"/>
+    <div class="name">{{ profile.real_name }}</div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+<div style="clear:both"></div>
+{% endblock content %}
+
+{% block sidebar %}
+<h2>Skiff Tweets</h2>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 230,
+  height: 400,
+  theme: {
+    shell: {
+      background: '#ffffff',
+      color: '#000000'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#000000',
+      links: '#0067d6'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: true,
+    behavior: 'all'
+  }
+}).render().setUser('theskiff').start();
+</script>
+{% endblock %}
+

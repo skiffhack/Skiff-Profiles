@@ -50,6 +50,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     ('media', os.path.join(PROJECT_PATH, 'media')),
+    ('media', os.path.join(PROJECT_PATH, 'media')),
 )
 
 MEDIA_ROOT = os.path.join(PROJECT_PATH, 'staticfiles', 'media')
@@ -110,6 +111,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.staticfiles',
+    'django.contrib.markup',
     'south',
     'gunicorn',
     'django.contrib.auth',
@@ -117,3 +119,43 @@ INSTALLED_APPS = (
     'bootstrap',
     'profiles',
 )
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'null': {
+            'level':'DEBUG',
+            'class':'django.utils.log.NullHandler',
+        },
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+        }
+    },
+    'loggers': {
+        # 'django': {
+        #     'handlers':['null'],
+        #     'propagate': True,
+        #     'level':'INFO',
+        # },
+        # 'django.request': {
+        #     'handlers': ['mail_admins'],
+        #     'level': 'ERROR',
+        #     'propagate': False,
+        # },
+        'django_browserid.auth': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        }
+  }
+}
+
+try:
+    from local_settings import *
+except:
+    pass
+

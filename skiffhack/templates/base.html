@@ -4,7 +4,7 @@
 <!--[if IE 8]>    <html class="ie8 old" lang="en"> <![endif]-->
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>{% block title %}Skiff Stuff!!{% endblock %}</title>
+    <title>{% block title %}Skiff Profiles{% endblock %}</title>
 
     {% for key,value in open_graph.items %}
     <meta property="{{key}}" content="{{value}}"/>
@@ -39,10 +39,12 @@ $(document).ready(function(){
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <a class="brand" href="/">Skiff Stuff</a>
+          <a class="brand" href="/">Skiff Profiles</a>
           <ul class="nav">
-            <li><a href="/clients">Menu1</a></li>
-            <li class="active"><a href="/classes">Menu2</a></li>
+            <li><a href="/profile/">Profiles</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/edit_profile/">Edit profile</a></li>
+            {% endif %}
           </ul>
           <ul class="nav secondary-nav">
             {% if not user.is_authenticated %}
@@ -66,9 +68,12 @@ $(document).ready(function(){
     <div class="container">
       <div class="content">
         <div class="page-header">
+          {% block before-heading %}
+          {% endblock %}
           <h1>{%block page-heading %}Skiff Stuff{% endblock %} <small>{% block page-subheading %}Hello world!{% endblock %}</a> </small></h1>
           {% block after-heading %}
           {% endblock %}
+          <div style="clear:both"></div>
         </div>
         <div class="row">
           <div class="span10">
@@ -80,6 +85,8 @@ $(document).ready(function(){
         </div>
       </div>
       <footer>
+        {% block footer-top %}
+        {% endblock %}
         <p>Created at <a href="https://github.com/skiffhack/SkiffHack/wiki">SkiffHack</a></p>
       </footer>
     </div>

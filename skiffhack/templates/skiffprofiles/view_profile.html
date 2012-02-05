@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load markup %}
+
+{% block before-heading %}
+<img class="profile_image" src="{{profile_image}}" alt="{{real_name}}'s profile image" width="80" height="80"/>
+{% endblock %}
+
+{%block page-heading %}
+<a href="{{html}}">{{real_name}}</a>
+{% endblock %}
+
+{% block after-heading %}
+<div class="profile-details">
+  {% if twitter %}
+    <div><a href="{{twitter_link}}">@{{ twitter }}</a></div>
+  {% endif %}
+  {% if url %}
+    <div><a href="url">{{ url }}</a></div>
+  {% endif %}
+  {% if email %}
+    <div><a href="mailto:{{email}}">{{ email }}</a></div>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block page-subheading %}{% endblock %}
+
+{% block sidebar %}
+{% if twitter %}
+<h2>Latest Tweets</h2>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 230,
+  height: 400,
+  theme: {
+    shell: {
+      background: '#ffffff',
+      color: '#000000'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#000000',
+      links: '#0067d6'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: true,
+    behavior: 'all'
+  }
+}).render().setUser('{{ twitter }}').start();
+</script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if what_do_you_do %}
+<h2>What do you do?</h2>
+{{ what_do_you_do|markdown }}
+{% endif %}
+
+{% if about %}
+<h2>Tell us about yourself</h2>
+{{ about|markdown }}
+{% endif %}
+
+{% endblock content %}
+
+{% block footer-top %}
+<p><a href="{{json}}">JSON</a></p>
+{% endblock %}
