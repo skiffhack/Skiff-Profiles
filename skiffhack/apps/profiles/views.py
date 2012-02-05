@@ -1,7 +1,7 @@
 from django.views.generic import UpdateView, View, DetailView, ListView
 from models import *
 import forms
-from django.utils import simplejson as json
+from django.utils import simplejson as ()json
 from django.http import HttpResponse, HttpResponseRedirect
 import re
 from django.contrib.auth.decorators import login_required
@@ -44,7 +44,7 @@ class JSONOrHTMLView(DetailView):
         return self.render_to_response(context)
 
     def render_json(self):
-        json_data = json.dumps(self.get_json_data(object=self.object))
+        json_data = json.dumps(self.get_json_data(object=self.object), sort_keys=True, indent=4)
         if "callback" in self.request.GET:
             callback = request.GET["callback"]
             assert re.match("^[a-zA-Z0-9_]*$", callback)
