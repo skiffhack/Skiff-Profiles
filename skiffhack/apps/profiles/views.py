@@ -82,8 +82,8 @@ class ViewProfile(JSONOrHTMLView):
         for format in ["json","html"]:
             details[format] = settings.SITE_URL + reverse("profile", kwargs={"format": format, "profile": profile.hash})
         details["twitter_link"] = "http://twitter.com/#!/%s" % (profile.twitter,) if profile.twitter else None
-        if self.request.user.is_authenticated:
-            details["email"] = self.request.user.email
+        if self.request.user.is_authenticated():
+            details["email"] = object.user.email
         return details
 
     def render_jpg(self):
