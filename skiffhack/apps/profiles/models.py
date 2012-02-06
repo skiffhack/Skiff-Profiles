@@ -13,8 +13,8 @@ class Profile(models.Model):
     real_name = models.CharField(max_length=255, blank=True)
     twitter = models.CharField(max_length=255, blank=True)
     url = models.CharField('URL', max_length=255, blank=True)
-    what_do_you_do = models.TextField('What do you do?', blank=True)
     about = models.TextField('Tell us about yourself', blank=True)
+    what_do_you_do = models.TextField('What do you do?', blank=True)
 
     def profile_image(self, size=80):
         """

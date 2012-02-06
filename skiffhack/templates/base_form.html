@@ -4,6 +4,8 @@
 <form method="post" action="">
   {% csrf_token %}
   {{ form.as_div }}
+  {% block after-fields %}
+  {% endblock %}
   <div class="actions">
     <input class="btn primary" type="submit" value="Save"/>
   </div>

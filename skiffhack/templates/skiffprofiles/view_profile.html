@@ -60,15 +60,17 @@ new TWTR.Widget({
 {% endblock %}
 
 {% block content %}
-{% if what_do_you_do %}
-<h2>What do you do?</h2>
-{{ what_do_you_do|markdown }}
-{% endif %}
 
 {% if about %}
 <h2>Tell us about yourself</h2>
-{{ about|markdown }}
+{{ about|linebreaks|urlize }}
 {% endif %}
+
+{% if what_do_you_do %}
+<h2>What do you do?</h2>
+{{ what_do_you_do|linebreaks|urlize }}
+{% endif %}
+
 
 {% endblock content %}
 
