@@ -154,6 +154,8 @@ LOGGING = {
   }
 }
 
+AUTH_PROFILE_MODULE = "profiles.Profile"
+
 try:
     from local_settings import *
 except:

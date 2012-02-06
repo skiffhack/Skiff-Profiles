@@ -27,7 +27,7 @@ $(document).ready(function(){
     });
   });
   
-  {% if user.is_authenticated %}
+  {% if user.is_authenticated and user.get_profile.track_presence %}
 
   //temporary: pass email into the local user API
   // TODO: Load IP from settings file
@@ -36,7 +36,7 @@ $(document).ready(function(){
       type :'PUT',
       url : 'http://192.168.11.10:5000/ident',
       contentType: 'application/json',
-      data: JSON.stringify({ hash: "{{ user.hash }}" }),
+      data: JSON.stringify({ hash: "{{ user.get_profile.hash }}" }),
       dataType: 'jsonp'
     });
   }

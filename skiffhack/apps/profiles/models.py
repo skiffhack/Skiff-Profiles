@@ -17,6 +17,8 @@ class Profile(models.Model):
     about = models.TextField('Tell us about yourself', blank=True)
     what_do_you_do = models.TextField('What do you do?', blank=True)
 
+    track_presence = models.BooleanField('Enable Skiff Presence', default=False, help_text="Remember my computer and use it to show when I'm online at The Skiff. Please do say yes to this, it's going to enable some cool stuff!")
+
     def profile_image(self, size=80):
         """
         Return a profile image URL. It uses the gravatar image
