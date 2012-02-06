@@ -7,11 +7,25 @@ Skiff Profiles
 {% block page-subheading %}{% endblock %}
 
 {% block content %}
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $.get("http://192.168.11.10:5000/recent",function(data) {
+      $.each(data.recent, function(index,seen) {
+        if(seen.email) {
+          console.log(seen.email);
+          $('#' + seen.email).addClass("available");
+        }
+      });
+    },"json");
+  });
+</script>
+
 <div class="profile-list">
   {% for profile in profile_list %}
-  <div class="profile">
+  <div class="profile" id="{{ profile.get_profile.hash }}">
     <a href="{{profile.get_absolute_url}}">
-    <img  src="{{profile.profile_image}}" alt="{{profile.real_name}}'s profile image" width="80" height="80"/>
+    <img src="{{profile.profile_image}}" alt="{{profile.real_name}}'s profile image" width="80" height="80"/>
     <div class="name">{{ profile.real_name }}</div>
     </a>
   </div>
