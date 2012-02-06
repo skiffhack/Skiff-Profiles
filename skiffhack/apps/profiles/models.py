@@ -12,6 +12,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User)
     real_name = models.CharField(max_length=255, blank=True)
     twitter = models.CharField(max_length=255, blank=True)
+    linkedin_url = models.CharField('LinkedIn URL', max_length=255, blank=True, help_text="The URL of your LinkedIn profile")
     url = models.CharField('URL', max_length=255, blank=True)
     about = models.TextField('Tell us about yourself', blank=True)
     what_do_you_do = models.TextField('What do you do?', blank=True)

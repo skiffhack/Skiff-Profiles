@@ -75,7 +75,7 @@ class ViewProfile(JSONOrHTMLView):
     def get_json_data(self, object):
         profile = object
         details = {}
-        for field in ["real_name", "twitter", "what_do_you_do", "about", "url", "hash"]:
+        for field in ["real_name", "twitter", "what_do_you_do", "about", "url", "hash", "linkedin_url"]:
             details[field] = getattr(profile, field)
         details["profile_image"] = profile.profile_image()
         # Link to the json and html versions of this profile
