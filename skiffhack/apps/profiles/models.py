@@ -3,6 +3,7 @@ from django.contrib.auth.models import *
 from django.template import defaultfilters
 import hashlib, urllib
 from django.core.urlresolvers import reverse
+from django.conf import settings
 
 class Profile(models.Model):
     """
@@ -40,3 +41,21 @@ class Profile(models.Model):
 
     def get_absolute_url(self):
         return reverse("profile", kwargs={"profile": self.hash, "format": "html"})
+
+
+    def to_json(self):
+        """
+        Convert to JSON suitable for sending to the client
+        """
+        details = {}
+        for field in ["real_name", "twitter", "what_do_you_do", "about", "url", "hash", "linkedin_url", "track_presence"]:
+            details[field] = getattr(self, field)
+        details["profile_image"] = self.profile_image()
+        # Link to the json and html versions of this self
+        for format in ["json","html"]:
+            details[format] = settings.SITE_URL + reverse("profile", kwargs={"format": format, "profile": self.hash})
+        details["href"] = details["json"]
+        details["twitter_link"] = "http://twitter.com/#!/%s" % (self.twitter,) if self.twitter else None
+        # if self.request.user.is_authenticated():
+        #     details["email"] = object.user.email
+        return details
