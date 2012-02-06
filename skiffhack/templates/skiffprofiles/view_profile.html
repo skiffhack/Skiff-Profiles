@@ -63,12 +63,12 @@ new TWTR.Widget({
 
 {% if about %}
 <h2>Tell us about yourself</h2>
-{{ about|linebreaks|urlize }}
+{{ about|urlize|linebreaks}}
 {% endif %}
 
 {% if what_do_you_do %}
 <h2>What do you do?</h2>
-{{ what_do_you_do|linebreaks|urlize }}
+{{ what_do_you_do|urlize|linebreaks}}
 {% endif %}
 
 
