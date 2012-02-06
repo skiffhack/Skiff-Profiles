@@ -26,6 +26,21 @@ $(document).ready(function(){
       }
     });
   });
+  
+  {% if user.is_authenticated %}
+
+  //temporary: pass email into the local user API
+  if({{ remote_ip }} === '212.42.170.137') {
+    $.ajax({
+      type :'PUT',
+      url : 'http://192.168.11.10:5000/ident',
+      contentType: 'application/json',
+      data: JSON.stringify({ email: "{{ user.email }}" }),
+      dataType: 'jsonp'
+    });
+  }
+
+  {% endif %}
 });
     </script>
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css"/>
