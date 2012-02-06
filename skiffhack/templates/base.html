@@ -30,12 +30,13 @@ $(document).ready(function(){
   {% if user.is_authenticated %}
 
   //temporary: pass email into the local user API
-  if({{ remote_ip }} === '212.42.170.137') {
+  // TODO: Load IP from settings file
+  if('{{ request.META.REMOTE_ADDR }}' === '212.42.170.137') {
     $.ajax({
       type :'PUT',
       url : 'http://192.168.11.10:5000/ident',
       contentType: 'application/json',
-      data: JSON.stringify({ email: "{{ user.email }}" }),
+      data: JSON.stringify({ hash: "{{ user.hash }}" }),
       dataType: 'jsonp'
     });
   }
