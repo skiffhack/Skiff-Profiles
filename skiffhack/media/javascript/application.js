@@ -24,12 +24,28 @@ $(document).ready(function(){
     });
   }
 
-  // Ask the skiff presence system for presence information.
-  $.get("http://crane.papercreatures.com/recent",function(data) {
-    $.each(data.recent, function(index,seen) {
-      console.log(seen.hash);
-      $('.e' + seen.hash).addClass("available");
-    });
-  },"jsonp");
+  // If we're in the profile list then ask the skiff presence system
+  // for presence information.
+  if ($('.profile-list').length > 0) {
+    $.get("http://crane.papercreatures.com/recent",function(data) {
+      $.each(data.recent, function(index,seen) {
+        console.log(seen.hash);
+        $('.e' + seen.hash).addClass("available");
+      });
+    },"jsonp");
+  }
+
+  $.timeago.settings.prefixAgo = "Last seen at The Skiff ";
+  if (PROFILE_USER_HASH) {
+    $.get("http://crane.papercreatures.com/status/" + PROFILE_USER_HASH,function(data) {
+      if (!data.known) {
+        $('#attheskiff').text('');
+      } else if (data.present) {
+        $('#attheskiff').text('At the skiff now!').addClass('available');
+      } else {
+        $('#attheskiff').text(data.last_seen).timeago();
+      }
+    },"jsonp");
+  }
   
 });

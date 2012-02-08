@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load markup %}
 
+{% block jssettings %}
+var PROFILE_USER_HASH = '{{hash}}';
+{% endblock %}
+
 {% block before-heading %}
 <img class="profile_image" src="{{profile_image}}" alt="{{real_name}}'s profile image" width="80" height="80"/>
 {% endblock %}
@@ -10,7 +14,7 @@
 {% endblock %}
 
 {% block page-subheading %}
-<span class="e{{hash}} attheskiff">At the skiff now!</span>
+<span id="attheskiff"></span>
 {% endblock %}
 
 {% block after-heading %}
