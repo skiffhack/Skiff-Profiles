@@ -87,6 +87,6 @@ class ViewProfile(JSONOrHTMLMixin, DetailView):
             self.object = self.get_object()
         return self.object.to_json()
 
-    def get_jpg(self):
+    def get_jpg(self, request, *args, **kwargs):
         self.object = self.get_object()
         return HttpResponseRedirect(self.object.profile_image())
