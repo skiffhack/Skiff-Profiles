@@ -6,6 +6,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'^$', redirect_to, {'url': '/profiles/'}),
     (r'^profile/', redirect_to, {'url': '/profiles/'}),
     url(r'^profiles/', include('profiles.urls')),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {"next_page": "/"}, name="logout"),
