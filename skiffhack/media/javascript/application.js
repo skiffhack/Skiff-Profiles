@@ -28,6 +28,7 @@ $(document).ready(function(){
   // for presence information.
   if ($('.profile-list').length > 0) {
     $.get("http://crane.papercreatures.com/recent",function(data) {
+      $('body').addClass('presenceLoaded');
       $.each(data.recent, function(index,seen) {
         console.log(seen.hash);
         $('.e' + seen.hash).addClass("available");

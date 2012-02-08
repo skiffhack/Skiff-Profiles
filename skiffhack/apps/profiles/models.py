@@ -57,6 +57,7 @@ class Profile(models.Model):
             details[format] = settings.SITE_URL + reverse("profile", kwargs={"format": format, "profile": self.hash})
         details["href"] = details["json"]
         details["twitter_link"] = "http://twitter.com/#!/%s" % (self.twitter,) if self.twitter else None
+        details["status_link"] = "http://crane.papercreatures.com/status/" + self.hash
         # if self.request.user.is_authenticated():
         #     details["email"] = object.user.email
         return details
