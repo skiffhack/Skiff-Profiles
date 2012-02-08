@@ -9,6 +9,10 @@
 <a href="{{html}}">{{real_name}}</a>
 {% endblock %}
 
+{% block page-subheading %}
+<span class="e{{hash}} attheskiff">At the skiff now!</span>
+{% endblock %}
+
 {% block after-heading %}
 <div class="profile-details">
   {% if twitter %}
@@ -26,7 +30,6 @@
 </div>
 {% endblock %}
 
-{% block page-subheading %}{% endblock %}
 
 {% block sidebar %}
 {% if twitter %}

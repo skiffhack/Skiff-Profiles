@@ -16,7 +16,7 @@ Skiff Profiles
 {% block content %}
 <div class="profile-list">
   {% for profile in profile_list %}
-  <div class="profile" id="e{{ profile.hash }}">
+  <div class="profile e{{ profile.hash }}">
     <a href="{{profile.get_absolute_url}}">
       <div class="presence"></div>
       <img src="{{profile.profile_image}}" alt="{{profile.real_name}}'s profile image" width="80" height="80"/>

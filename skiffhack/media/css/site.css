@@ -101,3 +101,12 @@ div.profile.available .name {
     color: green;
     font-weight: bold;
 }
+span.attheskiff {
+    display: none; 
+}
+
+span.attheskiff.available {
+    display: inline !important;
+    color: green;
+    font-weight: bold;
+}

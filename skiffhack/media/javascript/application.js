@@ -24,15 +24,12 @@ $(document).ready(function(){
     });
   }
 
-  // If we're in the profile list then ask the skiff presence system
-  // for presence information.
-  if ($('.profile-list').length > 0) {
-    $.get("http://crane.papercreatures.com/recent",function(data) {
-      $.each(data.recent, function(index,seen) {
-        console.log(seen.hash);
-        $('#e' + seen.hash).addClass("available");
-      });
-    },"jsonp");
-  }
+  // Ask the skiff presence system for presence information.
+  $.get("http://crane.papercreatures.com/recent",function(data) {
+    $.each(data.recent, function(index,seen) {
+      console.log(seen.hash);
+      $('.e' + seen.hash).addClass("available");
+    });
+  },"jsonp");
   
 });
