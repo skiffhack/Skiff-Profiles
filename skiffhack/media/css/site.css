@@ -88,7 +88,7 @@ h1 a {
     text-align: center;
 }
 
-div.profile .available div.presence {
+div.profile.available div.presence {
   display : relative;
   bottom : 20px;
   right : 20px;
