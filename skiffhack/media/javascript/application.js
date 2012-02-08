@@ -19,7 +19,7 @@ $(document).ready(function(){
       type :'POST',
       url : 'http://192.168.11.10:5000/ident',
       contentType: 'application/json',
-      data: JSON.stringify({ hash: "{{ user.get_profile.hash }}" }),
+      data: JSON.stringify({ hash: CURRENT_USER.hash }),
       dataType: 'json'
     });
   }
