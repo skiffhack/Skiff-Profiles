@@ -43,7 +43,7 @@ $(document).ready(function(){
       } else if (data.present) {
         $('#attheskiff').text('At the skiff now!').addClass('available');
       } else {
-        $('#attheskiff').text(data.last_seen).timeago();
+        $('#attheskiff').attr("title", data.last_seen).timeago();
       }
     },"jsonp");
   }
