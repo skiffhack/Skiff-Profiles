@@ -39,9 +39,9 @@
         <div class="container">
           <a class="brand" href="/">Skiff Profiles</a>
           <ul class="nav">
-            <li><a href="/profile/">Profiles</a></li>
+            <li><a href="/profiles/">Profiles</a></li>
             {% if user.is_authenticated %}
-            <li><a href="/edit_profile/">Edit profile</a></li>
+            <li><a href="/profiles/edit_profile/">Edit profile</a></li>
             {% endif %}
           </ul>
           <ul class="nav secondary-nav">
@@ -85,7 +85,7 @@
       <footer>
         {% block footer-top %}
         {% endblock %}
-        <p><a href="https://github.com/skiffhack/SkiffHack/wiki/APIs">Developer Docs</a></p>
+        <p><a href="https://github.com/skiffhack/SkiffHack/wiki/APIs">API Docs</a></p>
         <p>Created at <a href="https://github.com/skiffhack/SkiffHack/wiki">SkiffHack</a></p>
       </footer>
     </div>

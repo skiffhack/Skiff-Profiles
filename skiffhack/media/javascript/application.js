@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   // Temporary thing while people might still have the herokuapp.com
   // address.Needs to be on the right domain or browserid will fail.
-  if (document.location.hostname !== 'who.theskiff.org') {
+  if (document.location.hostname === 'skiffprofile.herokuapp.com') {
     document.location = 'http://who.theskiff.org';
   }
 

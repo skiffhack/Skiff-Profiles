@@ -6,16 +6,11 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^$', redirect_to, {'url': '/profile/'}),
-    (r'^edit_profile/$', views.EditProfile.as_view()),
-    url(r'^profile/$', views.ProfileList.as_view(), name="profile-list"),
-    url(r'^profile/?[.](?P<format>json|html)$', views.ProfileList.as_view(), name="profile-list"),
-    url(r'^profile/me[.](?P<format>html|json|jpg)$', views.own_profile),
-    url(r'^profile/(?P<profile>.*@.*)[[.](?P<format>html|json|jpg)$', views.profile_by_email),
-    url(r'^profile/(?P<profile>.*)[.](?P<format>html|json|jpg)$', views.ViewProfile.as_view(), name="profile"),
-    (r'^browserid/', include('django_browserid.urls')),
+    (r'^profile/', redirect_to, {'url': '/profiles/'}),
+    url(r'^profiles/', include('profiles.urls')),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {"next_page": "/"}, name="logout"),
     url(r'^admin/', include(admin.site.urls)),
+    (r'^browserid/', include('django_browserid.urls')),
 )
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
