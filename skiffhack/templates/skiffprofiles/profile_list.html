@@ -6,24 +6,17 @@ Skiff Profiles
 
 {% block page-subheading %}{% endblock %}
 
-{% block content %}
-
+{% block extrahead %}
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
-    $.get("http://192.168.11.10:5000/recent",function(data) {
-      $.each(data.recent, function(index,seen) {
-        if(seen.email) {
-          console.log(seen.email);
-          $('#e' + seen.email).addClass("available");
-        }
-      });
-    },"json");
   });
 </script>
+{% endblock %}
 
+{% block content %}
 <div class="profile-list">
   {% for profile in profile_list %}
-  <div class="profile" id="e{{ profile.get_profile.hash }}">
+  <div class="profile" id="e{{ profile.hash }}">
     <a href="{{profile.get_absolute_url}}">
     <img src="{{profile.profile_image}}" alt="{{profile.real_name}}'s profile image" width="80" height="80"/>
     <div class="presence"></div>
@@ -67,3 +60,6 @@ new TWTR.Widget({
 </script>
 {% endblock %}
 
+{% block footer-top %}
+<p><a href=".json">JSON</a></p>
+{% endblock %}
