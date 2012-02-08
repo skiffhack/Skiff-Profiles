@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+  // Temporary thing while people might still have the herokuapp.com
+  // address.Needs to be on the right domain or browserid will fail.
+  if (document.location.hostname !== 'who.theskiff.org') {
+    document.location = 'http://who.theskiff.org';
+  }
+
   // Enable browserid loggin
   $('#browserid').bind('click', function(e) {
     e.preventDefault();

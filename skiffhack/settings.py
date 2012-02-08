@@ -28,7 +28,7 @@ LANGUAGE_CODE = 'en-GB'
 
 SITE_ID = 1
 
-SITE_URL = 'http://skiffprofile.herokuapp.com/'
+SITE_URL = 'http://who.theskiff.org'
 
 USE_I18N = False
 
