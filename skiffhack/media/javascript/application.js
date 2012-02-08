@@ -35,7 +35,7 @@ $(document).ready(function(){
     },"jsonp");
   }
 
-  $.timeago.settings.prefixAgo = "Last seen at The Skiff ";
+  $.timeago.settings.strings.prefixAgo = "Last seen at The Skiff ";
   if (PROFILE_USER_HASH) {
     $.get("http://crane.papercreatures.com/status/" + PROFILE_USER_HASH,function(data) {
       if (!data.known) {
