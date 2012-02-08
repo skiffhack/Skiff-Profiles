@@ -104,8 +104,7 @@ body.presenceLoaded div.profile.available div.presence {
 }
 
 body.presenceLoaded div.profile div.presence {
-  background: -moz-linear-gradient(90deg, #0e0e0e 0%, #333333 100%), no-repeat left top #15bd1a;
-  background: -webkit-gradient(linear, left bottom, left top, from(#0e0e0e), to(#333333)), no-repeat left top #15bd1a;
+  background: gray;
   border: 0px;
 }
 
