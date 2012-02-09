@@ -40,6 +40,7 @@ var PROFILE_USER_HASH = '{{hash}}';
 <h2>Latest Tweets</h2>
 <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
 <script>
+try {
 new TWTR.Widget({
   version: 2,
   type: 'profile',
@@ -65,6 +66,8 @@ new TWTR.Widget({
     behavior: 'all'
   }
 }).render().setUser('{{ twitter }}').start();
+} catch (e) {
+}
 </script>
 {% endif %}
 {% endblock %}
@@ -84,6 +87,11 @@ new TWTR.Widget({
 {% if stuff_done %}
 <h2>Show us some stuff you've made</h2>
 {{ stuff_done|urlize|linebreaks}}
+{% endif %}
+
+{% if use %}
+<h2>How do you use The Skiff?</h2>
+{{ use|urlize|linebreaks}}
 {% endif %}
 
 {% endblock content %}

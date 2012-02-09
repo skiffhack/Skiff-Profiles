@@ -118,6 +118,7 @@ INSTALLED_APPS = (
     'django_browserid',  # Load after auth to monkey-patch it.
     'bootstrap',
     'profiles',
+    'captains',
 )
 
 LOGGING = {

@@ -22,37 +22,6 @@ Skiff Profiles
 <div style="clear:both"></div>
 {% endblock content %}
 
-{% block sidebar %}
-<h2>Skiff Tweets</h2>
-<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-<script>
-new TWTR.Widget({
-  version: 2,
-  type: 'profile',
-  rpp: 4,
-  interval: 30000,
-  width: 230,
-  height: 400,
-  theme: {
-    shell: {
-      background: '#ffffff',
-      color: '#000000'
-    },
-    tweets: {
-      background: '#ffffff',
-      color: '#000000',
-      links: '#0067d6'
-    }
-  },
-  features: {
-    scrollbar: false,
-    loop: false,
-    live: true,
-    behavior: 'all'
-  }
-}).render().setUser('theskiff').start();
-</script>
-{% endblock %}
 
 {% block footer-top %}
 <p><a href=".json">JSON</a></p>

@@ -18,6 +18,7 @@ class Profile(models.Model):
     about = models.TextField('Tell us about yourself', blank=True, help_text="Links are made clickable")
     what_do_you_do = models.TextField('What do you do?', blank=True, help_text="Links are made clickable")
     stuff_done = models.TextField("Show us some stuff you've made", blank=True, help_text="Links are made clickable")
+    use = models.TextField("How do you use The Skiff?", blank=True, help_text="Links are made clickable")
 
     track_presence = models.BooleanField('Enable Skiff Presence', default=False, help_text="Remember my computer and use it to show when I'm online at The Skiff. Please do say yes to this, it's going to enable some cool stuff!")
 
@@ -49,7 +50,7 @@ class Profile(models.Model):
         Convert to JSON suitable for sending to the client
         """
         details = {}
-        for field in ["real_name", "twitter", "what_do_you_do", "about", "url", "hash", "linkedin_url", "track_presence", "stuff_done"]:
+        for field in ["real_name", "twitter", "what_do_you_do", "about", "url", "hash", "linkedin_url", "track_presence", "stuff_done","use"]:
             details[field] = getattr(self, field)
         details["profile_image"] = self.profile_image()
         # Link to the json and html versions of this self
