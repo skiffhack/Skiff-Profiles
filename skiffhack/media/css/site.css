@@ -100,11 +100,22 @@ h1 a {
     text-align: center;
 }
 
-div.profile div.presence {
+.profile-list .profile .thumbnail {
+    border: 0;
+    box-shadow: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.profile-list .profile .thumbnail img {
+    margin-bottom: 5px;
+}
+
+.profile div.presence {
   position : absolute;
   width : 12px;
   height :12px;
-  margin-left: 106px;
+  margin-left: 102px;
   margin-top: 66px;
   border: 1px solid black;
 }
@@ -115,12 +126,12 @@ body.presenceLoaded div.profile.available div.presence {
   border: 0px;
 }
 
-body.presenceLoaded div.profile div.presence {
+body.presenceLoaded .profile div.presence {
   background: gray;
   border: 0px;
 }
 
-div.profile.available .name {
+.profile.available .name {
     color: green;
     font-weight: bold;
 }
