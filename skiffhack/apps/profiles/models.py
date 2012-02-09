@@ -63,3 +63,6 @@ class Profile(models.Model):
         # if self.request.user.is_authenticated():
         #     details["email"] = object.user.email
         return details
+
+    def __unicode__(self):
+        return self.real_name
