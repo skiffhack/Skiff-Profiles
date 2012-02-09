@@ -29,11 +29,14 @@ class Profile(models.Model):
         (indexed by email) with the default set to the user's Twitter
         profile image.
         """
-        twitter_url = "https://api.twitter.com/1/users/profile_image?"
-        twitter_url += urllib.urlencode({"screen_name": self.twitter, "size": "bigger"})
         
         gravatar_url = "http://www.gravatar.com/avatar/" + self.hash + "?"
-        gravatar_url += urllib.urlencode({'d':twitter_url, 's':str(size)})
+        options = {'s':str(size)}
+        if self.twitter:
+            twitter_url = "https://api.twitter.com/1/users/profile_image?"
+            twitter_url += urllib.urlencode({"screen_name": self.twitter, "size": "bigger"})
+            options["d"] = twitter_url
+        gravatar_url += urllib.urlencode(options)
 
         return gravatar_url
 
