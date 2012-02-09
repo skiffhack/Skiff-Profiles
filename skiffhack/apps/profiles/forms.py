@@ -7,4 +7,6 @@ class ProfileForm(BootstrapModelForm):
         model = Profile
         exclude = ("user","hash",)
     url = forms.URLField(required=False)
+    github_url = forms.URLField(required=False)
+    linkedin_url = forms.URLField(required=False)
     twitter = forms.RegexField(regex="^[a-zA-Z0-9_]+$", required=False, error_message="Please enter just your Twitter id, leave off the @")
