@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{%block page-heading %}
+Captains
+{% endblock %}
+
+{% block page-subheading %}{% endblock %}
+
+
+{% block content %}
+<div class="captain-list">
+  {% for captaincy in captaincies %}
+  <div class="captaincy">
+    <b>{{captaincy.starts_on}} to {{captaincy.ends_on}}</b>
+    {% if captaincy.open %}
+    <button class="btn">Volunteer</button>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}
+
+{% block footer-top %}
+<p><a href=".json">JSON</a></p>
+{% endblock %}

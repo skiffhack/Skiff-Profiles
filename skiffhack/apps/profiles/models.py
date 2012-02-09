@@ -14,6 +14,7 @@ class Profile(models.Model):
     real_name = models.CharField(max_length=255, blank=True)
     twitter = models.CharField(max_length=255, blank=True)
     linkedin_url = models.CharField('LinkedIn URL', max_length=255, blank=True, help_text="The URL of your LinkedIn profile")
+    github_url = models.CharField('GitHub URL', max_length=255, blank=True, help_text="The URL of your GitHub profile")
     url = models.CharField('URL', max_length=255, blank=True)
     about = models.TextField('Tell us about yourself', blank=True, help_text="Links are made clickable")
     what_do_you_do = models.TextField('What do you do?', blank=True, help_text="Links are made clickable")
@@ -50,7 +51,7 @@ class Profile(models.Model):
         Convert to JSON suitable for sending to the client
         """
         details = {}
-        for field in ["real_name", "twitter", "what_do_you_do", "about", "url", "hash", "linkedin_url", "track_presence", "stuff_done","use"]:
+        for field in ["real_name", "twitter", "what_do_you_do", "about", "url", "hash", "linkedin_url", "github_url", "track_presence", "stuff_done","use"]:
             details[field] = getattr(self, field)
         details["profile_image"] = self.profile_image()
         # Link to the json and html versions of this self
