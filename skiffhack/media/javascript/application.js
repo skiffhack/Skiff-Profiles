@@ -7,7 +7,7 @@ $(document).ready(function(){
   }
 
   // Enable browserid loggin
-  $('#browserid').bind('click', function(e) {
+  $('.browserid').bind('click', function(e) {
     e.preventDefault();
     navigator.id.getVerifiedEmail(function(assertion) {
       if (assertion) {

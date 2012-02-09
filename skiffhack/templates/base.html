@@ -47,7 +47,7 @@
           <ul class="nav secondary-nav">
             {% if not user.is_authenticated %}
             <li>
-              <a id="browserid" href="#">Sign In</a>
+              <a id="browserid" class="browserid" href="#">Sign In</a>
               <form method="POST" action="{% url browserid_verify %}">
                 {% csrf_token %}
                 {{ browserid_form.as_p }}
@@ -66,6 +66,11 @@
     <div class="container">
       <div class="content">
         <div class="page-header">
+    {% if user.is_anonymous %}
+    <div class="alert alert-info alert-message info">
+      Welcome to who.theskiff.org! <a href="#" class="browserid">Sign In</a> now to create you own Skiff Profile! All you need is an email address.
+    </div> 
+    {% endif %}
           {% block before-heading %}
           {% endblock %}
           <h1>{%block page-heading %}Skiff Profiles{% endblock %} <small>{% block page-subheading %}{% endblock %}</a> </small></h1>
