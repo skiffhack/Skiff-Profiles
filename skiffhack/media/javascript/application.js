@@ -36,7 +36,6 @@ $(document).ready(function(){
     $.get("http://crane.papercreatures.com/recent",function(data) {
       $('body').addClass('presenceLoaded');
       $.each(data.recent, function(index,seen) {
-        console.log(seen.hash);
         $('.e' + seen.hash).addClass("available");
       });
     },"jsonp");
