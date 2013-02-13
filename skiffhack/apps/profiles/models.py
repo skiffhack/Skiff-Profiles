@@ -32,10 +32,11 @@ class Profile(models.Model):
         
         gravatar_url = "http://www.gravatar.com/avatar/" + self.hash + "?"
         options = {'s':str(size)}
-        if self.twitter:
-            twitter_url = "https://api.twitter.com/1/users/profile_image?"
-            twitter_url += urllib.urlencode({"screen_name": self.twitter, "size": "bigger"})
-            options["d"] = twitter_url
+        ## Twitter have changed their API so this doesn't work anymore
+        # if self.twitter:
+        #     twitter_url = "https://api.twitter.com/1/users/profile_image?"
+        #     twitter_url += urllib.urlencode({"screen_name": self.twitter, "size": "bigger"})
+        #     options["d"] = twitter_url
         gravatar_url += urllib.urlencode(options)
 
         return gravatar_url
