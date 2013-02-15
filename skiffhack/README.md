@@ -10,7 +10,7 @@ Installation
 
 To clone the repo::
 
-    git clone git@github.com:usrgrp/usrgrp.git
+    git clone git@github.com:skiffhack/Skiff-Profiles.git
 
 To setup::
 
@@ -36,7 +36,7 @@ To run the tests::
 Database Migrations
 ===================
 
-Check out the South `documentation <http://south.aeracode.org/docs/>`_ and `tutorial <http://south.aeracode.org/docs/tutorial/index.html>`_
+Check out the South [documentation](http://south.aeracode.org/docs/) and [tutorial](http://south.aeracode.org/docs/tutorial/index.html)
 
 To create a new migration after changing models.py::
 
@@ -53,4 +53,4 @@ To list all migrations (and see which have not yet been applied)::
 Templates
 =========
 
-Templates are based on `Twitter Bootstrap <http://twitter.github.com/bootstrap/>`.
+Templates are based on [Twitter Bootstrap](http://twitter.github.com/bootstrap/).
