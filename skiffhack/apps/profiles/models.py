@@ -55,8 +55,8 @@ class Profile(models.Model):
                 except Exception, e:
                     print "Failure to get twitter profile image :("
                     print e
-            else:
-               self.twitter_img_url = None
+        else:
+            self.twitter_img_url = None
         return super(Profile, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
