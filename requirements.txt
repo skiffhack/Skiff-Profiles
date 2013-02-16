@@ -6,3 +6,4 @@ gunicorn==0.12.2
 httplib2==0.7.7
 -e git+https://github.com/earle/django-bootstrap.git#egg=bootstrap
 Markdown==2.1.1
+dj-database-url==0.2.0
