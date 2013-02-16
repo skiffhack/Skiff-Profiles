@@ -57,6 +57,7 @@ class Profile(models.Model):
                     print e
         else:
             self.twitter_img_url = None
+        print self.twitter_img_url
         return super(Profile, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
