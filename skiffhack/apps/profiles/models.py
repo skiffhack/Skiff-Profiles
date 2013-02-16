@@ -4,6 +4,7 @@ from django.template import defaultfilters
 import hashlib, urllib
 from django.core.urlresolvers import reverse
 from django.conf import settings
+import requests
 
 class Profile(models.Model):
     """
@@ -23,6 +24,8 @@ class Profile(models.Model):
 
     track_presence = models.BooleanField('Enable Skiff Presence', default=False, help_text="Remember my computer and use it to show when I'm online at The Skiff. Please do say yes to this, it's going to enable some cool stuff!")
 
+    twitter_img_url = models.CharField(max_length=255, blank=True, null=True)
+
     def profile_image(self, size=80):
         """
         Return a profile image URL. It uses the gravatar image
@@ -33,9 +36,8 @@ class Profile(models.Model):
         gravatar_url = "http://www.gravatar.com/avatar/" + self.hash + "?"
         options = {'s':str(size)}
         # Twitter have changed their API so this doesn't work anymore
-        if self.twitter:
-            twitter_url = "http://twitter.com/api/users/profile_image/" + self.twitter
-            options["d"] = twitter_url
+        if self.twitter_img_url:
+            options["d"] = self.twitter_img_url
         gravatar_url += urllib.urlencode(options)
 
         return gravatar_url
@@ -43,6 +45,16 @@ class Profile(models.Model):
 
     def save(self, *args, **kwargs):
         self.hash = hashlib.md5(self.user.email.lower()).hexdigest()
+        if self.twitter:
+            if not self.twitter_img_url:
+                twitter_url = "http://twitter.com/api/users/profile_image/?"
+                twitter_url += urllib.urlencode({"screen_name": self.twitter, "size": "bigger"})
+                try:
+                    self.twitter_img_url = requests.get(twitter_url).headers["Location"]
+                except:
+                    pass
+            else:
+               self.twitter_img_url = None
         return super(Profile, self).save(*args, **kwargs)
 
     def get_absolute_url(self):

@@ -5,7 +5,7 @@ from django import forms
 class ProfileForm(BootstrapModelForm):
     class Meta:
         model = Profile
-        exclude = ("user","hash",)
+        exclude = ("user","hash","twitter_img_url",)
     url = forms.URLField(required=False)
     github_url = forms.URLField(required=False)
     linkedin_url = forms.URLField(required=False)
