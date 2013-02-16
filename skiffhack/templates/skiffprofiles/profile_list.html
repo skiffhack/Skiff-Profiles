@@ -8,18 +8,21 @@ Skiff Profiles
 
 
 {% block content %}
-<div class="profile-list">
+
+<ul class="thumbnails profile-list">
   {% for profile in profile_list %}
-  <div class="profile e{{ profile.hash }}">
-    <a href="{{profile.get_absolute_url}}">
-      <div class="presence"></div>
-      <img src="{{profile.profile_image}}" alt="{{profile.real_name}}'s profile image" width="80" height="80"/>
-      <div class="name">{{ profile.real_name }}</div>
-    </a>
-  </div>
+  <li class="profile e{{ profile.hash }}">
+    <div class="thumbnail">
+      <a href="{{ profile.get_absolute_url }}">
+        <div class="presence"></div>
+        <img src="{{ profile.profile_image }}" alt="{{ profile.real_name }}'s profile image" width="80" height="80" />
+        <div class="name">{{ profile.real_name }}</div>
+      </a>
+    </div>
+  </li>
   {% endfor %}
-</div>
-<div style="clear:both"></div>
+</ul>
+
 {% endblock content %}
 
 
