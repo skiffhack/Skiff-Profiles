@@ -49,6 +49,7 @@ class Profile(models.Model):
             if not self.twitter_img_url:
                 twitter_url = "http://twitter.com/api/users/profile_image/?"
                 twitter_url += urllib.urlencode({"screen_name": self.twitter, "size": "bigger"})
+                print twitter_url
                 try:
                     self.twitter_img_url = requests.get(twitter_url).headers["Location"]
                 except Exception, e:
