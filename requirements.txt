@@ -3,6 +3,6 @@ south==0.7.3
 psycopg2==2.4.4
 gunicorn==0.12.2
 -e git+https://github.com/mozilla/django-browserid.git@29addfd69df49cea18d691ba1f5c1ac38aebb6b8#egg=django_browserid
-httplib2==0.6
+httplib2==0.7.7
 -e git+https://github.com/earle/django-bootstrap.git#egg=bootstrap
 Markdown==2.1.1
