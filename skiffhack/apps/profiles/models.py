@@ -51,7 +51,7 @@ class Profile(models.Model):
                 twitter_url += urllib.urlencode({"screen_name": self.twitter, "size": "bigger"})
                 print twitter_url
                 try:
-                    self.twitter_img_url = requests.get(twitter_url, allow_redirects=False)).headers["Location"]
+                    self.twitter_img_url = requests.get(twitter_url, allow_redirects=False).headers["Location"]
                 except Exception, e:
                     print "Failure to get twitter profile image :("
                     print e
