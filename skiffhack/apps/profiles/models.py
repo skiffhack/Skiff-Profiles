@@ -35,7 +35,6 @@ class Profile(models.Model):
         
         gravatar_url = "http://www.gravatar.com/avatar/" + self.hash + "?"
         options = {'s':str(size)}
-        # Twitter have changed their API so this doesn't work anymore
         if self.twitter_img_url:
             options["d"] = self.twitter_img_url
         gravatar_url += urllib.urlencode(options)
@@ -47,7 +46,7 @@ class Profile(models.Model):
         self.hash = hashlib.md5(self.user.email.lower()).hexdigest()
         if self.twitter:
             if not self.twitter_img_url:
-                twitter_url = "http://twitter.com/api/users/profile_image/?"
+                twitter_url = "https://twitter.com/api/users/profile_image/?"
                 twitter_url += urllib.urlencode({"screen_name": self.twitter, "size": "bigger"})
                 print twitter_url
                 try:
