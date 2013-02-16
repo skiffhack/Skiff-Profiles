@@ -34,8 +34,7 @@ class Profile(models.Model):
         options = {'s':str(size)}
         # Twitter have changed their API so this doesn't work anymore
         if self.twitter:
-            twitter_url = "http://twitter.com/api/users/profile_image?"
-            twitter_url += urllib.urlencode({"screen_name": self.twitter, "size": "bigger"})
+            twitter_url = "http://twitter.com/api/users/profile_image/" + self.twitter
             options["d"] = twitter_url
         gravatar_url += urllib.urlencode(options)
 
