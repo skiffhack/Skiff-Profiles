@@ -162,4 +162,5 @@ try:
 except:
     import dj_database_url
     DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+    MAILGUN_API_KEY = os.environ.get('MAILGUN_API_KEY')
 
